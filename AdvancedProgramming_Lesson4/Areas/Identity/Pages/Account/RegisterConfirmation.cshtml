@@ -1,0 +1,30 @@
+﻿@page
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IHtmlLocalizer<AdvancedProgramming_Lesson4.Resource> SharedLocalizer
+@inject IViewLocalizer ViewLocalizer
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = @SharedLocalizer["Register confirmation"];
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+    <p>
+        @SharedLocalizer["This app does not currently have a real email sender registered, see"] <a href="https://aka.ms/aspaccountconf">
+            @SharedLocalizer["these docs"]
+        </a> @SharedLocalizer["for how to configure a real email sender."]
+        @SharedLocalizer["Normally this would be emailed:"] <a id="confirm - link" href="@Model.EmailConfirmationUrl">@SharedLocalizer["Click here to confirm your account"]</a>
+</p>
+    }
+    else
+    {
+<p>
+    @SharedLocalizer["Please check your email to confirm your account."]
+</p>
+    }
+}

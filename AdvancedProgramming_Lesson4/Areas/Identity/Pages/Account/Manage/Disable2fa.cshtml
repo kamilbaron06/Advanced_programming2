@@ -1,0 +1,30 @@
+﻿@page
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IHtmlLocalizer<AdvancedProgramming_Lesson4.Resource> SharedLocalizer
+@inject IViewLocalizer ViewLocalizer
+@model Disable2faModel
+@{
+    ViewData["Title"] = SharedLocalizer["Disable two-factor authentication (2FA)"];
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-warning" role="alert">
+    <p>
+        <strong>@SharedLocalizer["This action only disables 2FA."]</strong>
+    </p>
+    <p>
+        @SharedLocalizer["Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the keyused in an authenticator app you should"] <a asp-page="./ResetAuthenticator">@SharedLocalizer["reset your authenticator keys."]</a>
+    </p>
+</div>
+
+<div>
+    <form method="post" class="form-group">
+        <button class="btn btn-danger" type="submit">@SharedLocalizer["Disable 2FA"]</button>
+    </form>
+</div>

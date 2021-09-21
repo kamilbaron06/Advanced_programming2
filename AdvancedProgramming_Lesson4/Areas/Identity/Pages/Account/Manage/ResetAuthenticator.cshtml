@@ -1,0 +1,29 @@
+﻿@page
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IHtmlLocalizer<AdvancedProgramming_Lesson4.Resource> SharedLocalizer
+@inject IViewLocalizer ViewLocalizer
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = @SharedLocalizer["Reset authenticator key"];
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h4>@ViewData["Title"]</h4>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>@SharedLocalizer["If you reset your authenticator key your authenticator app will not work until you reconfigure it."]</strong>
+    </p>
+    <p>
+        @SharedLocalizer["This process disables 2FA until you verify your authenticator app. If you do not complete your authenticator app configuration you may lose access to your account."]
+    </p>
+</div>
+<div>
+    <form id="reset-authenticator-form" method="post" class="form-group">
+        <button id="reset-authenticator-button" class="btn btn-danger" type="submit">@SharedLocalizer["Reset authenticator key"]</button>
+    </form>
+</div>

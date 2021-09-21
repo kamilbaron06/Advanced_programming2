@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@using Microsoft.AspNetCore.Localization;
+
+@model IndexModel
+
+@inject IHtmlLocalizer<Resource> SharedLocalizer
+@* ViewLocalizer path is Resources.Pages.Index *@
+@inject IViewLocalizer ViewLocalizer
+
+@{ ViewData["Title"] = SharedLocalizer["Home"]; }
+
+
+
+<div class="text-center">
+    <h1 class="display-4">@SharedLocalizer["Welcome"]</h1>
+    <p>@SharedLocalizer["Learn about"] <a href="https://docs.microsoft.com/aspnet/core">@SharedLocalizer["building Web apps with ASP.NET Core"]</a>.</p>
+    <p>
+        @SharedLocalizer["Authors:"]
+    </p>
+    <li class="nav-item">
+        Rafał Wróbel
+    </li>
+    <li class="nav-item">
+        Kamil Baron
+    </li>
+
+</div>

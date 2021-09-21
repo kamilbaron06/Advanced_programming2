@@ -1,0 +1,16 @@
+﻿@page
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IHtmlLocalizer<AdvancedProgramming_Lesson4.Resource> SharedLocalizer
+@inject IViewLocalizer ViewLocalizer
+@model LogoutModel
+@{
+    ViewData["Title"] = @SharedLocalizer["Log out"];
+}
+
+<header>
+    <h1>@ViewData["Title"]</h1>
+    <p>@SharedLocalizer["You have successfully logged out of the application."]</p>
+</header>

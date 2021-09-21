@@ -1,0 +1,52 @@
+﻿@page
+@model AdvancedProgramming_Lesson4.Pages.AdminModel
+
+@{
+    ViewData["Title"] = "Admin";
+}
+@{ if (User.Identity.Name == "admin@email.com")
+    {
+        <h1>Users</h1>
+
+        <p>
+
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AspNetUsers[0].UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AspNetUsers[0].Email)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AspNetUsers)
+                {
+
+                  
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                      
+                    </tr>
+                   
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+    <div class="text-center">
+    <h1 class="display-4">Access Denied</h1>
+    </div>
+    }
+}
+

@@ -1,0 +1,47 @@
+﻿@page
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IHtmlLocalizer<AdvancedProgramming_Lesson4.Resource> SharedLocalizer
+@inject IViewLocalizer ViewLocalizer
+@model AdvancedProgramming_Lesson4.Pages.HistoryModel
+
+@{
+    ViewData["Title"] = @SharedLocalizer["History"];
+}
+
+<h1>@SharedLocalizer["History"]</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatMessage[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatMessage[0].Message)
+            </th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ChatMessage)
+        {
+            @if (item.Logged == true)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

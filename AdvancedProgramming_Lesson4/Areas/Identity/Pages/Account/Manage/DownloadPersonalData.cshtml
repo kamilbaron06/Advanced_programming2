@@ -1,0 +1,18 @@
+﻿@page
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IHtmlLocalizer<AdvancedProgramming_Lesson4.Resource> SharedLocalizer
+@inject IViewLocalizer ViewLocalizer
+@model DownloadPersonalDataModel
+@{
+    ViewData["Title"] = SharedLocalizer["Download Your Data"];
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
